@@ -8,29 +8,39 @@
     MDBoxLayout:
         orientation: 'vertical'
         
-        # 
+        # Espaço Sueprior
         MDBoxLayout:
             orientation: 'vertical'
             size: 1920, 10
             size_hint: None, None  # Desabilita o redimensionamento automático
             pos_hint: {'top': 1, 'center_x': 0.5}  # Posiciona na borda superior
-            md_bg_color: "#7ac0e2"
+            md_bg_color: "#28519e"
         
-        # 
+        # Linha Amarela
         MDBoxLayout:
             orientation: 'vertical'
             size: 1920, 7
             size_hint: None, None  # Desabilita o redimensionamento automático
             pos_hint: {'top': 1, 'center_x': 0.5}  # Posiciona na borda superior
-            md_bg_color: "#735282"
+            md_bg_color: "#d3a613"
 
+        # Linha Verde
+        MDBoxLayout:
+            orientation: 'vertical'
+            size: 1920, 7
+            size_hint: None, None  # Desabilita o redimensionamento automático
+            pos_hint: {'top': 1, 'center_x': 0.5}  # Posiciona na borda superior
+            md_bg_color: "#439c48"
+
+        # Espaço para o título
         MDBoxLayout:
             orientation: 'horizontal'
             size: 1920, 100
             size_hint: None, None  # Desabilita o redimensionamento automático
             pos_hint: {'top': 1, 'center_x': 0.5}  # Posiciona na borda superior
-            md_bg_color: "#7ac0e2"
+            md_bg_color: "#28519e"
 
+            # Texto para cada equipe
             MDLabel:
                 text: "EQUIPE COR: FLU CRAQUE RAFA"
                 id: tituloEquipe
@@ -40,16 +50,26 @@
                 font_name: "Titulo"
                 text_color: "#fcc425"
 
+        # Linha Amarela Inferior
         MDBoxLayout:
             orientation: 'vertical'
             size: 1920, 7
             size_hint: None, None  # Desabilita o redimensionamento automático
             pos_hint: {'top': 1, 'center_x': 0.5}  # Posiciona na borda superior
-            md_bg_color: "#735282"
+            md_bg_color: "#d3a613"
 
+        # Linha Verde Inferior
+        MDBoxLayout:
+            orientation: 'vertical'
+            size: 1920, 7
+            size_hint: None, None  # Desabilita o redimensionamento automático
+            pos_hint: {'top': 1, 'center_x': 0.5}  # Posiciona na borda superior
+            md_bg_color: "#439c48"
+        
+        # Espaço Inferior (Depois do título)
         MDBoxLayout:
             orientation: 'horizontal'
             size: 1920, 150
             size_hint: None, None  # Desabilita o redimensionamento automático
             pos_hint: {'top': 1, 'center_x': 0.5}  # Posiciona na borda superior
-            md_bg_color: "#7ac0e2"
+            md_bg_color: "#28519e"
