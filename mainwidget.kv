@@ -8,6 +8,8 @@
     MDBoxLayout:
         orientation: 'vertical'
         
+        # Parte da Barra Superior ----------------------------------------------------------
+
         # Espaço Sueprior
         MDBoxLayout:
             orientation: 'vertical'
@@ -47,7 +49,7 @@
                 halign: "center"
                 valign: "middle"
                 font_size: "70sp"
-                font_name: "Titulo"
+                font_name: "fonts/Lovelo Black.otf"
                 text_color: "#fcc425"
 
         # Linha Amarela Inferior
@@ -66,6 +68,8 @@
             pos_hint: {'top': 1, 'center_x': 0.5}  # Posiciona na borda superior
             md_bg_color: "#439c48"
         
+        # Parte do Cronômetro (Tempo Total) -----------------------------------------------------------------
+
         # Espaço Inferior (Depois do título)
         MDBoxLayout:
             orientation: 'horizontal'
@@ -73,3 +77,40 @@
             size_hint: None, None  # Desabilita o redimensionamento automático
             pos_hint: {'top': 1, 'center_x': 0.5}  # Posiciona na borda superior
             md_bg_color: "#28519e"
+
+            # Texto para o Tempo Total
+            MDLabel:
+                text: "Tempo Total:"
+                valign: "center"
+                halign: "center"
+                font_size: "30sp"
+                font_name: "fonts/Lovelo Black.otf"
+
+            # Texto para o Tempo Total
+            MDLabel:
+                text: "00:00.000"
+                id: tempoTotal
+                valign: "center"
+                halign: "center"
+                font_size: "80sp"
+                font_name: "Roboto"  # Usando a fonte digital
+
+            # Texto para o Tempo da Volta
+            MDLabel:
+                text: "Tempo da volta:"
+                valign: "center"
+                halign: "center"
+                font_size: "30sp"
+                font_name: "fonts/Lovelo Black.otf"
+
+            # Texto para o Tempo da Volta
+            MDLabel:
+                text: "00:00.000"
+                id: tempoVolta
+                valign: "center"
+                halign: "center"
+                font_size: "80sp"
+                font_name: "Roboto"
+
+        
+
