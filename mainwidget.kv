@@ -112,5 +112,88 @@
                 font_size: "80sp"
                 font_name: "Roboto"
 
-        
+        # Área principal do cronômetro --------------------------------------------------------------
 
+        # Área total restante
+        MDBoxLayout:
+            orientation: 'horizontal'
+            md_bg_color: "#28519e"
+            # Este layout vai ocupar o espaço restante automaticamente
+            padding: [10, 10, 10, 10]  # [esquerda, topo, direita, baixo]
+            spacing: 10  # Espaçamento entre os elementos
+
+            # Espaço para a câmera
+            MDBoxLayout:
+                orientation: 'vertical'
+                size: 1366, 768  # largura: 1600px, altura: 900px
+                size_hint: None, None  # Desabilita o redimensionamento automático
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}  # Centraliza o layout
+                md_bg_color: "#d3a613"  # Cor de fundo branca
+
+            # Espaço para registro das voltas 
+            MDBoxLayout:
+                orientation: 'vertical'
+                md_bg_color: "#28519e"
+                padding: [0, 0, 0, 10]
+
+                # Título para as voltas
+                MDLabel:
+                    text: "VOLTAS:"
+                    valign: "top"
+                    halign: "center"
+                    font_size: "40sp"
+                    font_name: "fonts/Lovelo Black.otf"
+
+                # Texto para cada volta (5 voltas)
+                MDLabel:
+                    text: "volta 1: 00:00.000"
+                    id: volta1
+                    valign: "top"
+                    halign: "center"
+                    font_size: "30sp"
+                    font_name: "fonts/Lovelo Black.otf"
+                    opacity: 1
+
+                MDLabel:
+                    text: "volta 2: 00:00.000"
+                    id: volta2
+                    valign: "top"
+                    halign: "center"
+                    font_size: "30sp"
+                    font_name: "fonts/Lovelo Black.otf"
+                    opacity: 1
+
+                MDLabel:
+                    text: "volta 3: 00:00.000"
+                    id: volta3
+                    valign: "top"
+                    halign: "center"
+                    font_size: "30sp"
+                    font_name: "fonts/Lovelo Black.otf"
+                    opacity: 1
+
+                MDLabel:
+                    text: "volta 4: 00:00.000"
+                    id: volta4
+                    valign: "top"
+                    halign: "center"
+                    font_size: "30sp"
+                    font_name: "fonts/Lovelo Black.otf"
+                    opacity: 1
+
+                MDLabel:
+                    text: "volta 5: 00:00.000"
+                    id: volta5
+                    valign: "top"
+                    halign: "center"
+                    font_size: "30sp"
+                    font_name: "fonts/Lovelo Black.otf"
+                    opacity: 1
+
+                # Espaço para os botões e para o logo
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    md_bg_color: "#7ac0e2"
+                    height: 400
+                    size_hint_y: None
+                    size_hint_x: 1
