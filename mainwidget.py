@@ -60,9 +60,22 @@ class MainWidget(MDBoxLayout):
         Imprime as voltas da equipe atual da mais rápida para a mais lenta.
         """
         voltas_ordenadas = sorted(self.equipes[self.selecionar].voltas)
-        print(f"Voltas da equipe {self.equipes[self.selecionar].nome} (mais rápida -> mais lenta):")
+        print(f"Voltas da equipe {self.equipes[self.selecionar].nome}:")
         for indice, tempo in enumerate(voltas_ordenadas, start=1):
             print(f"{indice}: {self.formatar_tempo(tempo)}")
+
+    def atualizar_voltas_interface(self):
+        """
+        Atualiza os labels da interface com as voltas mais rápidas primeiro.
+        """
+        voltas_ordenadas = sorted(self.equipes[self.selecionar].voltas)
+        labels_voltas = [self.ids.volta1, self.ids.volta2, self.ids.volta3, self.ids.volta4, self.ids.volta5]
+
+        for indice, label in enumerate(labels_voltas, start=1):
+            if indice <= len(voltas_ordenadas):
+                label.text = f"volta {indice}: {self.formatar_tempo(voltas_ordenadas[indice - 1])}"
+            else:
+                label.text = f"volta {indice}: 00:00.000"
 
     def iniciar_websocket(self, dt=None):
         """Inicializa a conexão WebSocket com o ESP32"""
@@ -79,64 +92,56 @@ class MainWidget(MDBoxLayout):
                 tempo_volta_formatado = self.formatar_tempo(tempo_volta)
 
                 if self.volta == 1:
-                    self.ids.volta1.text = f"volta {self.volta}: {tempo_volta_formatado}"
                     self.equipes[self.selecionar].voltas.append(tempo_volta)
                     self.volta += 1
                     #self.ids.volta1.opacity = 1
                 
                 elif self.volta == 2:
-                    self.ids.volta2.text = f"volta {self.volta}: {tempo_volta_formatado}"
                     self.equipes[self.selecionar].voltas.append(tempo_volta)
                     self.volta += 1
                     #self.ids.volta2.opacity = 1
 
                 elif self.volta == 3:
-                    self.ids.volta3.text = f"volta {self.volta}: {tempo_volta_formatado}"
                     self.equipes[self.selecionar].voltas.append(tempo_volta)
                     self.volta += 1
                     #self.ids.volta3.opacity = 1
 
                 elif self.volta == 4:
-                    self.ids.volta4.text = f"volta {self.volta}: {tempo_volta_formatado}"
                     self.equipes[self.selecionar].voltas.append(tempo_volta)
                     self.volta += 1
                     #self.ids.volta4.opacity = 1
 
                 elif self.volta == 5:
-                    self.ids.volta5.text = f"volta {self.volta}: {tempo_volta_formatado}"
                     self.equipes[self.selecionar].voltas.append(tempo_volta)
                     self.volta += 1
                     #self.ids.volta5.opacity = 1
                 
                 elif self.volta == 6:
-                    self.ids.volta1.text = f"volta {self.volta}: {tempo_volta_formatado}"
                     self.equipes[self.selecionar].voltas.append(tempo_volta)
                     self.volta += 1
                     #self.ids.volta1.opacity = 1
                 
                 elif self.volta == 7:
-                    self.ids.volta2.text = f"volta {self.volta}: {tempo_volta_formatado}"
                     self.equipes[self.selecionar].voltas.append(tempo_volta)
                     self.volta += 1
                     #self.ids.volta2.opacity = 1
                     
                 elif self.volta == 8:
-                    self.ids.volta3.text = f"volta {self.volta}: {tempo_volta_formatado}"
                     self.equipes[self.selecionar].voltas.append(tempo_volta)
                     self.volta += 1
                     #self.ids.volta3.opacity = 1
                     
                 elif self.volta == 9:
-                    self.ids.volta4.text = f"volta {self.volta}: {tempo_volta_formatado}"
                     self.equipes[self.selecionar].voltas.append(tempo_volta)
                     self.volta += 1
                     #self.ids.volta4.opacity = 1
                     
                 elif self.volta == 10:
-                    self.ids.volta5.text = f"volta {self.volta}: {tempo_volta_formatado}"
                     self.equipes[self.selecionar].voltas.append(tempo_volta)
                     self.volta += 1
                     #self.ids.volta5.opacity = 1
+
+                self.atualizar_voltas_interface()
                 
                 if self.ultimaVolta:
                     """Essa é a última parte da corrida de cada equipe
@@ -150,7 +155,7 @@ class MainWidget(MDBoxLayout):
                     #self.volta = 1
                     self.ids.botaoEsquerda.disabled = False
                     self.ids.botaoDireita.disabled = False
-                    self.ids.botaoCasa.disabled = False
+                    #self.ids.botaoCasa.disabled = False
                 else:
                     # Para o cronômetro da volta
                     self.cronometroTempoVolta.zerar_cronometro()
@@ -222,7 +227,7 @@ class MainWidget(MDBoxLayout):
         self.eventoTextoTempoTotal = Clock.schedule_interval(self.altera_texto_tempo_total, 0.01)
         self.ids.botaoEsquerda.disabled = True
         self.ids.botaoDireita.disabled = True
-        self.ids.botaoCasa.disabled = True
+        #self.ids.botaoCasa.disabled = True
 
     def altera_texto_tempo_total(self, dt):
         tempo = self.cronometroTempoTotal.obter_tempo_atual()
@@ -259,7 +264,7 @@ class MainWidget(MDBoxLayout):
             self.eventoTextoTempoTotal = None
         self.ids.botaoEsquerda.disabled = False
         self.ids.botaoDireita.disabled = False
-        self.ids.botaoCasa.disabled = False
+        #self.ids.botaoCasa.disabled = False
         if self.eventoTextoTempoVolta is not None:
             self.zerar_cronometro_volta()
 
