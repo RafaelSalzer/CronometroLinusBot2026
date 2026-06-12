@@ -14,10 +14,10 @@ class MainWidget(MDBoxLayout):
         Inicializa o widget.
         """
         super().__init__(**kwargs)
-        self.equipes = [Equipes.Equipe("Cavaleiros das Trevas", "Preta"), Equipes.Equipe("Droga, é o Brian", "Cinza"),
-                        Equipes.Equipe("RUST-EZE", "Vermelha"), Equipes.Equipe("Laranja Mecânica", "Laranja"),
-                        Equipes.Equipe("Os Vigaristas", "Roxa"), Equipes.Equipe("S. C. O. O. B. Y", "Verde"), 
-                        Equipes.Equipe("Charmbots", "Rosa")]
+        self.equipes = [Equipes.Equipe("Egito", "Azul"), Equipes.Equipe("Alemanha", "Preto"),
+                        Equipes.Equipe("Grécia", "Branco"), Equipes.Equipe("AQV!tss (França)", "Vermelho"),
+                        Equipes.Equipe("Nova Holanda", "Laranja"), Equipes.Equipe("Não sei", "Lilás"), 
+                        Equipes.Equipe("Portugal", "Verde")]
         # Inicia o Websocket
         Clock.schedule_once(self.iniciar_websocket, 0.1)
         # Configura a interface
