@@ -200,5 +200,80 @@
                     
                     # Logo do Linus
                     Image:
-                        source: "images/LogoLinus.png"  # Caminho para sua imagem   
+                        source: "images/LogoLinus.png"   
                         keep_ratio: True
+
+                    # Espaço para os botões
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: "60dp"  # Aumentei de 50dp para 80dp
+                        md_bg_color: "#439c48"
+                        spacing: 5
+                        padding: [5, 5, 5, 5]
+                        
+                        # Botão para reiniciar o cronômetro da volta
+                        MDIconButton:
+                            icon: "restart"
+                            style: "filled"
+                            id: botaoRestart
+                            on_press: root.zerar_cronometro_volta()
+                            theme_bg_color: "Custom"
+                            md_bg_color: "#d3a613"
+                            theme_icon_color: "Custom"
+                            icon_color: "#439c48"
+                            size_hint_x: 1  # Distribui igualmente
+                            pos_hint: {'center_y': 0.5}
+
+                        # Botão para zerar tudo (cronômetro total e cronômetro da volta)
+                        MDIconButton:
+                            icon: "cancel"
+                            style: "filled"
+                            id: botaoCancelar
+                            on_press: root.zerar_cronometro()  # Chama o método para zerar o cronômetro
+                            theme_bg_color: "Custom"
+                            md_bg_color: "#d3a613"
+                            theme_icon_color: "Custom"
+                            icon_color: "#439c48"
+                            size_hint_x: 1  # Distribui igualmente
+                            pos_hint: {'center_y': 0.5}
+
+                        # Botão para mover para esquerda
+                        MDIconButton:
+                            icon: "arrow-left"
+                            style: "filled"
+                            id: botaoEsquerda
+                            theme_bg_color: "Custom"
+                            md_bg_color: "#d3a613"
+                            theme_icon_color: "Custom"
+                            icon_color: "#439c48"
+                            size_hint_x: 1  # Distribui igualmente
+                            pos_hint: {'center_y': 0.5}
+                            on_press: root.selecionar_equipe_esquerda()
+
+                        # Botão home
+                        MDIconButton:
+                            icon: "home"
+                            style: "filled"
+                            id: botaoCasa
+                            theme_bg_color: "Custom"
+                            md_bg_color: "#d3a613"
+                            theme_icon_color: "Custom"
+                            icon_color: "#439c48"
+                            size_hint_x: 1  # Distribui igualmente
+                            pos_hint: {'center_y': 0.5}
+
+                        # Botão para mover para direita
+                        MDIconButton:
+                            icon: "arrow-right"
+                            style: "filled"
+                            id: botaoDireita
+                            theme_bg_color: "Custom"
+                            md_bg_color: "#d3a613"
+                            theme_icon_color: "Custom"
+                            icon_color: "#439c48"
+                            size_hint_x: 1  # Distribui igualmente
+                            pos_hint: {'center_y': 0.5}
+                            on_press: root.selecionar_equipe_direita()
+                        
+                        
